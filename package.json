@@ -1,0 +1,23 @@
+{
+  "name": "comic_fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeldsdomingo/comic_fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeldsdomingo/comic_fullstack/issues"
+  },
+  "homepage": "https://github.com/michaeldsdomingo/comic_fullstack#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1"
+  }
+}
