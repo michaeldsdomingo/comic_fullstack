@@ -1,0 +1,80 @@
+.carouselbox {
+    font-family: helvetica,sans-serif;
+    font-size: 14px;
+    width: 100px;
+    position: relative;
+    margin: 1em;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px #ccc;
+    //overflow: hidden;
+    left: 200px; 
+  }
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+  .content li {
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    color: black;
+    
+  }
+  
+  .active {
+    height: 130px;
+  }
+  .active li {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    -webkit-transform: translateX(100px);
+    -webkit-transition: 'transform ease-out 0.45s';
+  }
+  .active li.current {
+    top: 40px;
+    left: 0px;
+    position: absolute;
+  }
+  
+  .anim {
+    animation-name: colorful;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  
+  }
+  
+  @keyframes colorful {
+    0% {
+      transform: translate(0px,0px);
+    }
+    100% {
+      transform: translate(-100px,0px);
+      
+    }
+  }
+  
+  
+  
+  .active .buttons {
+    padding: 5px 0;
+    background: #eee;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    display: flex;
+  }
+  .carouselbox button {
+    border: none;
+    display: none;
+  }
+  .active button {
+    display: block;
+  } 
+  .offscreen {
+    position: absolute;
+    left: -2000px;
+  }
