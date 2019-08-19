@@ -10,12 +10,22 @@ export default class Register extends Component {
 
     render() {
         return(
-            <div className='register'>
-                <form action='/newUser' method='post'>
-                    <input placeholder='Email' name='email'/>
-                    <input placeholder='Password' name='password' />
-                    <input type='submit'/>
-                </form>
+            <div className='register login'>
+                <div className='tile'>
+                    <div className="flexColumnCenter" >
+                        <h1 className="loginTitle">Comic Bloggers</h1>
+                        <form action='/newUser' method='post'>
+                            <input placeholder='Email' name='email'/>
+                            <input placeholder='Password' name='password' />
+                            <input type='submit'/>
+                        </form>
+
+                        
+                    </div>
+                 
+                    
+                </div>
+                
                 <button onClick={this.register1}>Register</button>
             
             </div>

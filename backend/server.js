@@ -150,6 +150,7 @@ app.post('/addReviewToDB', (req,res) => {
     })
     .then( (docRefer) => {
         console.log("Doc added with ID:", docRef.id);
+        res.redirect("/");
     })
     .catch( (error) => {
         console.log("Error in adding document:", error)
@@ -158,7 +159,6 @@ app.post('/addReviewToDB', (req,res) => {
 })
 
 app.post('/editReviewToDB', (req,res) => {
-    console.log(req.body.id)
     let docRef = db.collection('reviews').doc(req.body.id)
     docRef.update({
         writer: req.body.writer,
@@ -179,9 +179,26 @@ app.post('/editReviewToDB', (req,res) => {
     res.redirect('/')
 })
 
-app.post("/deleteReview", (req,res) => {
+app.delete("/deleteReview", (req,res) => {
+    console.log(req.body.id)
     db.collection('reviews').doc(req.body.id).delete();
-    res.redirect('/');
+    console.log("deleted");
+    res.send("removed")
+})
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log(user.email);
+    }
+})
+
+app.post("/login", (req,res) => {
+    var email = req.body.email;
+    var password = req.body.password;
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        console.log(error.message);
+    })
+    res.redirect('/')
 })
 
 app.listen(80, () => console.log('Listening on port 80'));

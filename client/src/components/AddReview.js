@@ -59,12 +59,16 @@ export default class AddReview extends Component {
     }
 
     handleDelete = () => {
-        axios.post("/deleteReview", {id: this.props.location.state.id})
+        axios.delete("/deleteReview", {
+            data: {id: this.props.location.state.id} 
+        })
             .then( (response) => {
-                console.log("Deleted Review Success")
+                console.log("Deleted Review Success");
+                window.location = '/';
             })
             .catch( (error) => {
                 console.log(error)
+                window.location = '/';
             })
     }
     

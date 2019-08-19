@@ -8,12 +8,15 @@ export default class Login extends Component {
                 <div className='tile'>
                     <div className="flexColumnCenter" >
                         <h1 className="loginTitle">Comic Bloggers</h1>
-                        <form>
-                            <input placeholder="Email"></input>
-                            <input placeholder="Password"></input>
+                        <form action='/login' method='post'>
+                            <input placeholder="Email" name="email" />
+                            <input placeholder="Password" name="password" />
 
-                            <button>Login</button>
-                            <Link to='/register'>Register</Link>
+                            <input type='submit' />
+                            <div id="register">
+                              <Link to='/register'>Register</Link>
+                            </div>
+                            
                         </form>
 
                         

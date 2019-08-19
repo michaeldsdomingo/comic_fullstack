@@ -1,6 +1,6 @@
 .app-container {
     background-color: #f7f4f4;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 body {
@@ -165,4 +165,11 @@ h4 {
 
 .displayNone {
     display: none;
+}
+
+#register {
+    display: flex;
+    width: 250px;
+    margin: 0 auto;
+    justify-content: flex-end;
 }
