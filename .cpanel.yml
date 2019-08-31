@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/micheyjd/public_html/comicbookblogspot.michaeldomingo.dev/
+    - export DEPLOYPATH=/home/micheyjd/public_html/comictest/
     - /bin/cp client/build/index.html $DEPLOYPATH
