@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/micheyjd/public_html/comicbookblogspot.michaeldomingo.dev/
-    - /bin/cp -R /home/micheyjd/repositories/comic_fullstack/client/build $DEPLOYPATH
+    - /bin/cp client/build/index.html $DEPLOYPATH
