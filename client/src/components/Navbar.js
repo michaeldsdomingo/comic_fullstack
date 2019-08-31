@@ -11,7 +11,7 @@ class Navbar extends Component {
                 <div id="navbar">
                     <ul>
                         <li id='title'>
-                            <Link to="/" className="removeUnderline colorWhite">Comic Blogger</Link>
+                            <Link to="/" className="removeUnderline colorWhite">Comic Book Blogspot</Link>
                             {/* <a>Comic Bloggers</a> */}
                         </li>
                         <div className='align-right'>
