@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/micheyjd/comicbookblogspot.michaeldomingo.dev/
-    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp -R /client/build/ $DEPLOYPATH
