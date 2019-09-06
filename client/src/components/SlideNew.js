@@ -37,7 +37,7 @@ class SlideNew extends React.Component {
                                     <div>Artist: {this.props.artist}</div>
                                     <div>Publisher: {this.props.publisher}</div>
                                     <div>Release Date: {this.props.releaseDate}</div>
-                                    <div>Cover Price: {this.props.coverPrice}</div>
+                                    <div>Cover Price: ${this.props.coverPrice}</div>
                                     <Score score={this.props.score}/>
                                 </div>
                             </div>
