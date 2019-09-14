@@ -25,7 +25,8 @@ class SlideNew extends React.Component {
                         writer: this.props.writer,
                         image: this.props.image,
                         body: this.props.body,
-                        name: this.props.name
+                        name: this.props.name,
+                        admin: this.props.admin
                     }
                 }}>
                     <div class="">

@@ -34,12 +34,12 @@ export default class AddReview extends Component {
     editAction = () => {
         console.log(document.getElementById("addEditForm"))
         console.log('edit')
-        document.getElementById("addEditForm").action = "/editReviewToDB"
+        document.getElementById("addEditForm").action = "/reviewsdb/editReviewToDB"
     }
 
     addAction = () => {
         console.log('add')
-        document.getElementById("addEditForm").action = "/addReviewToDB"
+        document.getElementById("addEditForm").action = "/reviewsdb/addReviewToDB"
     }
 
     handleChange = name => event => {
@@ -51,15 +51,15 @@ export default class AddReview extends Component {
 
     handleSubmit = () => {
         if (this.state.editOrAdd == "edit") {
-            document.getElementById("addEditForm").action = "/editReviewToDB"
+            document.getElementById("addEditForm").action = "/reviewsdb/editReviewToDB"
         }
         else {
-            document.getElementById("addEditForm").action = "/addReviewToDB"
+            document.getElementById("addEditForm").action = "/reviewsdb/addReviewToDB"
         }
     }
 
     handleDelete = () => {
-        axios.delete("/deleteReview", {
+        axios.delete("/reviewsdb/deleteReview", {
             data: {id: this.props.location.state.id} 
         })
             .then( (response) => {

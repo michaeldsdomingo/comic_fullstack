@@ -40,6 +40,7 @@ class Review extends React.Component {
             writer,
             image,
             body,
+            admin
             } = this.props.location.state;
         console.log(id, body);
         this.setState({
@@ -52,7 +53,8 @@ class Review extends React.Component {
             title,
             writer,
             image,
-            body
+            body,
+            admin
             
         })
     }
@@ -66,25 +68,28 @@ class Review extends React.Component {
                 <div className='row'>
                     <img src={this.state.image}></img>
                     <div className="ml-5" id="reviewDescription">
-                    <Link id="reviewEditButton"
-                        to={{
-                        pathname: `/review/${this.state.id}/edit`,
-                        state: {
-                            id: this.state.id,
-                            artist: this.state.artist,
-                            coverPrice: this.state.coverPrice,
-                            publisher: this.state.publisher,
-                            releaseDate: this.state.releaseDate,
-                            score: this.state.score,
-                            title: this.state.title,
-                            writer: this.state.writer,
-                            image: this.state.image,
-                            body: this.state.body,
-                            editOrAdd: "edit"
-                        }
-                    }}>
-                        <Button variant="contained" color="primary">Edit</Button>
-                    </Link>
+                    {this.state.admin &&
+                        <Link id="reviewEditButton"
+                            to={{
+                            pathname: `/review/${this.state.id}/edit`,
+                            state: {
+                                id: this.state.id,
+                                artist: this.state.artist,
+                                coverPrice: this.state.coverPrice,
+                                publisher: this.state.publisher,
+                                releaseDate: this.state.releaseDate,
+                                score: this.state.score,
+                                title: this.state.title,
+                                writer: this.state.writer,
+                                image: this.state.image,
+                                body: this.state.body,
+                                editOrAdd: "edit"
+                            }
+                        }}>
+                            <Button variant="contained" color="primary">Edit</Button>
+                        </Link>
+                    }
+                    
                         <h3>Title: <span className="reviewDescValue">{this.state.title}</span></h3>
                         <h3>Writer: <span className="reviewDescValue">{this.state.writer}</span> </h3>
                         <h3>Artist: <span className="reviewDescValue">{this.state.artist}</span> </h3>

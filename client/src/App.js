@@ -14,14 +14,70 @@ import Review from "./components/Review";
 import AddReview from "./components/AddReview";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            authUser: null,
+            test: 'world',
+            admin: false,
+            currentUser: null
+        };
+    }
+
+    componentDidMount() {
+        console.log('app did mount')
+        this.getSession();
+        
+    }
+
+
+
+    componentWillUnmount() {
+        
+    }
+
+    getSession = () => {
+        axios.get('/auth/session')
+        .then( response => {
+            this.setState({
+                authUser: response.data
+            })
+            console.log(response.data)
+            this.getCurrentUser();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+
+    getCurrentUser = () => {
+        
+        axios.post('/auth/currentUser', {
+            authUser: this.state.authUser
+        })
+        .then( response => {
+            console.log(response.data)
+            this.setState({
+                currentUser: response.data,
+                admin: response.data.admin
+            })
+        })
+    }
+
+
     render() {
         return (
             <Router>
                 <div className='app-container'>
-                    <Navbar/>
+                    <Navbar authUser={this.state.authUser} admin={this.state.admin}/>
                     <div className="main">
-                        <Route path="/" exact component={Home} />
-                        <Route path='/login' component={Login}/>
+                        <Route path="/" exact 
+                            render={(props) => <Home {...props} admin={this.state.admin}/>} 
+                        />
+                        <Route path='/login' 
+                            render={(props) => <Login {...props} />}
+                        />
                         <Route path='/register' component={Register}/>
                         <Route path='/review/:reviewNumber' exact component={Review} />
                         <Route path='/addReview' component={AddReview}/>

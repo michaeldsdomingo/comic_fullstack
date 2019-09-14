@@ -20,7 +20,7 @@ export default class CarouselBootStrap extends Component {
 
     getReviewsFromDB = () => {
         var dataDB;
-        axios.get('/getReviews')
+        axios.get('/reviewsdb/getReviews')
             .then((response) => {
                 //console.log(response.data.data);
                 dataDB = response.data.data;
@@ -50,7 +50,8 @@ export default class CarouselBootStrap extends Component {
                                                 body={entry['body']}
                                                 score={entry['score']}
                                                 name={entry.name}
-                                                active={"active"}/>
+                                                active={"active"}
+                                                admin={this.props.admin}/>
                             }
                             else {
                                 return <SlideNew id={entry['id']}
@@ -64,7 +65,8 @@ export default class CarouselBootStrap extends Component {
                                                 body={entry['body']}
                                                 score={entry['score']}
                                                 name={entry.name}
-                                                active={""}/>
+                                                active={""}
+                                                admin={this.props.admin}/>
                             }
                             
                         }) 

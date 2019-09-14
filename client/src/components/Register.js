@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import axios from 'axios';
 
 export default class Register extends Component {
     register1 = () => {
-        console.log("register");
+        axios.get('/auth/addUser')
+        .then( res => console.log(res))
+        .catch( error => console.log(error))
     }
 
 
@@ -14,7 +17,7 @@ export default class Register extends Component {
                 <div className='tile'>
                     <div className="flexColumnCenter" >
                         <h1 className="loginTitle">Comic Bloggers</h1>
-                        <form action='/newUser' method='post'>
+                        <form action='/auth/newUser' method='post'>
                             <input placeholder='Email' name='email'/>
                             <input placeholder='Password' name='password' />
                             <input type='submit'/>
