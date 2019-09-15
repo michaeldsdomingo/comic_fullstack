@@ -65,6 +65,13 @@ class App extends Component {
         })
     }
 
+    test = () => {
+        axios.get('/reviewsdb/testing')
+        .then( res => {
+            console.log(res.data)
+        })
+    }
+
 
     render() {
         return (
@@ -85,6 +92,7 @@ class App extends Component {
                     </div>
                     
                 </div>
+                <button onClick={this.test}>Test</button>
                 
             </Router>
             
