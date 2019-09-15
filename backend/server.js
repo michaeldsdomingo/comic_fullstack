@@ -25,9 +25,7 @@ app.use('/auth', auth);
 // })
 
 
-app.get('/testing', (req,res) => {
-    res.send('testing route1');
-})
+
 
 app.listen(80, () => console.log('Listening on port 80'));
 

@@ -158,9 +158,5 @@ router.delete("/deleteReview", (req,res) => {
     res.send("removed")
 })
 
-router.get('/testing', (req,res) => {
-    console.log("test route working")
-    res.send('hello')
-})
 
 module.exports = router
