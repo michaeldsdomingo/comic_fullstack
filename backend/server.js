@@ -5,7 +5,8 @@ const auth = require('./routes/auth')
 // Required for side-effects
 require("firebase/firestore");
 require("firebase/auth");
-const db = require('./db').db;
+
+
 const app = express();
 
 
