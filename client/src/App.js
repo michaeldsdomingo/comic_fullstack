@@ -66,7 +66,7 @@ class App extends Component {
     }
 
     test = () => {
-        axios.get('/reviewsdb/testing')
+        axios.get('/testing')
         .then( res => {
             console.log(res.data)
         })

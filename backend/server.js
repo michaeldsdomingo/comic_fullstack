@@ -24,6 +24,10 @@ app.use('/auth', auth);
 // })
 
 
+app.get('/testing', (req,res) => {
+    res.send('testing route');
+})
+
 app.listen(82, () => console.log('Listening on port 82'));
 
 
