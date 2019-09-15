@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 const firebase = require("../db").firebase;
 
 require("firebase/auth");
