@@ -17,7 +17,7 @@ body {
     margin-top: 100px;
 }
 
-.login .tile {
+.login .tile, .register .tile {
     width: 100%;
     background-color: white;
     height: 80vh;
@@ -55,10 +55,10 @@ input {
     margin-bottom: 150px;
 }
 
-.login button {
-    height: 35px;
-    width: 250px;
-    margin: 10px auto;
+.login button, .register button {
+    height: 40px;
+    width: 80%;
+    margin: 16px auto;
     display: block;
     padding: 0;
     background-color: rgb(19, 79, 136);
@@ -99,6 +99,7 @@ h4 {
 .review .reviewDescription {
     width: 60%;
     margin: 20px auto;
+    white-space: pre-line;
 }
 
 .active {
@@ -138,6 +139,7 @@ h4 {
 #addReview {
     width: 50%;
     margin: 5% auto;
+    min-width: 300px;
 
 }
 
@@ -149,13 +151,13 @@ h4 {
     display: flex !important;
 }
 
-#reviewDescription {
+#reviewDetails {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#reviewDescription h3 {
+#reviewDetails h3 {
     margin: 0;
 }
 
@@ -173,3 +175,82 @@ h4 {
     margin: 0 auto;
     justify-content: flex-end;
 }
+
+.flex-grow {
+    flex-grow: 1
+}
+
+@media only screen and (max-width: 450px) {
+    .reviewDescription {
+      width: 90% !important;
+    }
+
+    #reviewDetails {
+        margin-top: 15px;
+    }
+
+    #reviewImage {
+        width: 100%;
+    }
+
+    #addReview h1 {
+        font-size: 36px;
+    }
+
+    .slideNew {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .review {
+        margin-top: 0 !important;
+    }
+
+    .carousel-item img {
+        height: calc(100% - 210px - 50px);
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #comicDetails {
+        margin-top: 5%;
+        margin-left: 0 !important;;
+    }
+
+  }
+
+.login .MuiFormControl-root, .register .MuiFormControl-root {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.MuiButton-root:hover {
+    color: rgb(19, 79, 136);
+}
+
+.buttonPrimary:hover {
+    color: #0154ac !important;
+    background-color: white !important;
+}
+
+.buttonPrimary {
+    background-color: #0154ac !important;
+}
+
+.buttonSecondary {
+    background-color: rgb(192, 0, 0) !important;
+}
+
+.buttonSecondary:hover {
+    color: rgb(192, 0, 0) !important;
+    background-color: white !important;
+}
+
+.appBar .MuiButton-root:hover{
+    color: white;
+}
+

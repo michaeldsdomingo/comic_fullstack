@@ -79,7 +79,8 @@ export default class AddReview extends Component {
     render() {
         return (
             <div id="addReview">
-                <h1>Add New Review</h1>
+                {this.state.editOrAdd == 'add' && <h1>Add New Review</h1>} 
+                {this.state.editOrAdd == 'edit' && <h1>Edit Review</h1>} 
                 <form method="post" id="addEditForm" onSubmit={this.handleSubmit}>
                     <div className="displayNone">
                         <TextField
@@ -176,9 +177,9 @@ export default class AddReview extends Component {
                         defaultValue={this.editValue('image')}
                         onChange={this.handleChange("image")}
                     />
-                    {this.state.editOrAdd == 'add' && <Button variant="contained" color="primary" type="submit" >Add</Button>} 
-                    {this.state.editOrAdd == 'edit' && <Button variant="contained" color="primary" type="submit" >Edit</Button>}
-                    {this.state.editOrAdd == 'edit' && <Button variant="contained" color="secondary" onClick={this.handleDelete} >Delete</Button>}
+                    {this.state.editOrAdd == 'add' && <Button variant="contained" color="primary" type="submit" className="buttonPrimary">Add</Button>} 
+                    {this.state.editOrAdd == 'edit' && <Button variant="contained" color="primary" type="submit" className="buttonPrimary">Edit</Button>}
+                    {this.state.editOrAdd == 'edit' && <Button variant="contained" color="secondary" className="buttonSecondary" onClick={this.handleDelete} >Delete</Button>}
                 </form>
             </div>
         )

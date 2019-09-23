@@ -60,14 +60,14 @@ class Review extends React.Component {
     }
     render() {
         const styleInline = {
-            
+           
         }
         return (
             <div className="review mt-5">
                 
                 <div className='row'>
-                    <img src={this.state.image}></img>
-                    <div className="ml-5" id="reviewDescription">
+                    <img src={this.state.image} id="reviewImage"></img>
+                    <div className="ml-5" id="reviewDetails">
                     {this.state.admin &&
                         <Link id="reviewEditButton"
                             to={{
@@ -83,10 +83,11 @@ class Review extends React.Component {
                                 writer: this.state.writer,
                                 image: this.state.image,
                                 body: this.state.body,
-                                editOrAdd: "edit"
+                                editOrAdd: "edit",
+                                
                             }
                         }}>
-                            <Button variant="contained" color="primary">Edit</Button>
+                            <Button variant="contained" color="primary" className="buttonPrimary">Edit</Button>
                         </Link>
                     }
                     

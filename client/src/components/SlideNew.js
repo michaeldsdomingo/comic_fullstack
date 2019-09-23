@@ -33,7 +33,7 @@ class SlideNew extends React.Component {
                         <div class="bgBlack">
                             <div class="d-flex justify-content-center align-items-center slideNew">
                                 <img src={this.props.image} class="d-block " alt="..." />
-                                <div class="d-flex flex-column justify-content-center ml-5">
+                                <div class="d-flex flex-column justify-content-center ml-5" id="comicDetails">
                                     <div>Writer: {this.props.writer}</div>
                                     <div>Artist: {this.props.artist}</div>
                                     <div>Publisher: {this.props.publisher}</div>

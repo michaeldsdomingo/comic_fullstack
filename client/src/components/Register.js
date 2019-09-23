@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import axios from 'axios';
+import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
 
 export default class Register extends Component {
     register1 = () => {
@@ -11,25 +14,43 @@ export default class Register extends Component {
 
 
 
+
+
     render() {
         return(
-            <div className='register login'>
-                <div className='tile'>
+            <div className='register'>
+                <Card className="tile">
                     <div className="flexColumnCenter" >
-                        <h1 className="loginTitle">Comic Bloggers</h1>
+                        <h1 className="loginTitle">Register</h1>
                         <form action='/auth/newUser' method='post'>
-                            <input placeholder='Email' name='email'/>
+                        <TextField
+                            id="outlined-writer"
+                            label="Email"
+                            margin="normal"
+                            variant="outlined"
+                            name="email"
+                            
+                            
+                        />
+                        <TextField
+                            id="outlined-writer"
+                            label="Password"
+                            margin="normal"
+                            variant="outlined"
+                            name="password"
+                            
+                            
+                        />
+                        <Button type='submit'>Register</Button>
+                            {/* <input placeholder='Email' name='email'/>
                             <input placeholder='Password' name='password' />
-                            <input type='submit'/>
+                            <input type='submit'/> */}
                         </form>
-
-                        
                     </div>
-                 
                     
-                </div>
+                </Card>
                 
-                <button onClick={this.register1}>Register</button>
+                
             
             </div>
         )

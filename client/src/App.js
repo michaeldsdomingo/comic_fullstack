@@ -12,6 +12,7 @@ import Register from "./components/Register";
 import Review from "./components/Review";
 //import Tutorial from './components/Tutorial.js'
 import AddReview from "./components/AddReview";
+import Appbar from './components/Appbar';
 
 class App extends Component {
     constructor(props) {
@@ -69,7 +70,8 @@ class App extends Component {
         return (
             <Router>
                 <div className='app-container'>
-                    <Navbar authUser={this.state.authUser} admin={this.state.admin}/>
+                    {/* <Navbar authUser={this.state.authUser} admin={this.state.admin}/> */}
+                    <Appbar authUser={this.state.authUser} admin={this.state.admin}/>
                     <div className="main">
                         <Route path="/" exact 
                             render={(props) => <Home {...props} admin={this.state.admin}/>} 
