@@ -17,14 +17,26 @@ router.post('/newUser', (req,res) => {
     let docRef = db.collection('users');
     docRef.add({
         email,
-        password
+        password,
+        admin: false
     })
     .then( docRef => {
-        console.log("added")
+        // console.log("added")
     })
     
     
     res.redirect('/');
+})
+
+router.get('/addUser', (req,res) => {
+    let docRef = db.collection('users');
+    docRef.add({
+        first: 'Bill',
+        last: 'Murray'
+    })
+    .then( docRef => {
+        console.log("added")
+    })
 })
 
 router.post("/login", (req,res) => {
@@ -59,7 +71,7 @@ router.get("/logout", (req,res) => {
 
 router.get("/session", (req,res) => {
     firebase.auth().onAuthStateChanged(authUser => {
-       
+        console.log(authUser)
         authUser
         ? res.send(authUser)
         : res.send(authUser);
@@ -67,16 +79,7 @@ router.get("/session", (req,res) => {
     
 })
 
-router.get('/addUser', (req,res) => {
-    let docRef = db.collection('users');
-    docRef.add({
-        first: 'Bill',
-        last: 'Murray'
-    })
-    .then( docRef => {
-        console.log("added")
-    })
-})
+
 
 router.post('/currentUser', (req,res) => {
     let docRef = db.collection('users');
@@ -89,6 +92,30 @@ router.post('/currentUser', (req,res) => {
         })
     })
     
+})
+
+router.get('/sessionAuth', (req, res) => {
+    // console.log('session auth')
+    firebase.auth().onAuthStateChanged(authUser => {
+        if(!authUser) {
+            res.status(200).send(null)
+        }
+        else {
+            let docRef = db.collection('users');
+            // console.log(authUser.email)
+            let user = docRef.where('email', '==', authUser.email).get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    // console.log('got user')
+                    // console.log(doc.data())
+                    res.send(doc.data())
+                })
+            }).catch(error => {
+                console.log('got user failed')
+            })
+        }
+        
+    })
 })
 
 module.exports = router

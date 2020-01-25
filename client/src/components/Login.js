@@ -4,8 +4,18 @@ import axios from "axios";
 import Card from '@material-ui/core/Card';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
+import { login, logout } from '../js/actions'
+import { connect } from 'react-redux'
+import Logo from '../images/Logo3.gif'
 
-export default class Login extends Component {
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login: () => dispatch(login()),
+        logout: () => dispatch(logout())
+    }
+}
+
+class ConnectedLogin extends Component {
 
     constructor() {
         super()
@@ -14,7 +24,7 @@ export default class Login extends Component {
             password: ''
         }
     }
-
+    
     login = (e) => {
         e.preventDefault();
 
@@ -56,6 +66,7 @@ export default class Login extends Component {
 
     handleChange = name => event => {
         //setValues({ ...values, [name]: event.target.value });
+        console.log(this.props)
         this.setState({
             [`${name}`]: event.target.value
         })
@@ -66,6 +77,7 @@ export default class Login extends Component {
             <div className='login'>
                 <Card className="tile">
                     <div className="flexColumnCenter" >
+                        {/* <img src={Logo} style={{height: 200 + 'px'}}/> */}
                         <h1 className="loginTitle">Kabling Comics</h1>
                         <form onSubmit={this.login}>
                             <TextField
@@ -84,6 +96,7 @@ export default class Login extends Component {
                                 margin="normal"
                                 variant="outlined"
                                 name="password"
+                                type="password"
                                 defaultValue={this.editValue("password")}
                                 onChange={this.handleChange("password")}
                                 
@@ -110,3 +123,6 @@ export default class Login extends Component {
         )
     }
 }
+
+const Login = connect(null, mapDispatchToProps)(ConnectedLogin)
+export default Login

@@ -38,6 +38,7 @@ export default class Register extends Component {
                             margin="normal"
                             variant="outlined"
                             name="password"
+                            type="password"
                             
                             
                         />

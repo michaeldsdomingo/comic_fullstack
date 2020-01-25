@@ -107,7 +107,7 @@ router.get('/getReviews', (req,res) => {
 })
 
 router.post('/addReviewToDB', (req,res) => {
-    console.log(req.body.writer, req.body.title, req.body.artist);
+    // console.log(req.body.writer, req.body.title, req.body.artist);
     var docRef = db.collection("reviews");
     docRef.add({
         writer: req.body.writer,
@@ -152,7 +152,7 @@ router.post('/editReviewToDB', (req,res) => {
 })
 
 router.delete("/deleteReview", (req,res) => {
-    console.log(req.body.id)
+    // console.log(req.body.id)
     db.collection('reviews').doc(req.body.id).delete();
     console.log("deleted");
     res.send("removed")

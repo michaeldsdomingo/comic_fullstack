@@ -20,15 +20,14 @@ class App extends Component {
         
         this.state = {
             authUser: null,
-            test: 'world',
             admin: false,
             currentUser: null
         };
     }
 
     componentDidMount() {
-        console.log('app did mount')
-        this.getSession();
+        
+        // this.getSession();
         
     }
 
@@ -40,25 +39,24 @@ class App extends Component {
 
     getSession = () => {
         axios.get('/auth/session')
-        .then( response => {
-            this.setState({
-                authUser: response.data
+            .then( response => {
+                this.setState({
+                    authUser: response.data
+                })
+                console.log(response.data)
+                this.getCurrentUser();
             })
-            console.log(response.data)
-            this.getCurrentUser();
-        })
-        .catch( error => {
-            console.log(error)
-        })
+            .catch( error => {
+                console.log(error)
+            })
     }
 
     getCurrentUser = () => {
         
         axios.post('/auth/currentUser', {
             authUser: this.state.authUser
-        })
-        .then( response => {
-            console.log(response.data)
+        }).then( response => {
+            
             this.setState({
                 currentUser: response.data,
                 admin: response.data.admin

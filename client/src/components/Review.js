@@ -1,10 +1,16 @@
 import React from 'react'
 import "../style/slider.css"
 import Button from '@material-ui/core/Button';
-
+import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
-class Review extends React.Component {
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+class ConnectedReview extends React.Component {
     constructor(props) {
         super(props);
 
@@ -68,7 +74,7 @@ class Review extends React.Component {
                 <div className='row'>
                     <img src={this.state.image} id="reviewImage"></img>
                     <div className="ml-5" id="reviewDetails">
-                    {this.state.admin &&
+                    {this.props.auth.admin &&
                         <Link id="reviewEditButton"
                             to={{
                             pathname: `/review/${this.state.id}/edit`,
@@ -91,7 +97,7 @@ class Review extends React.Component {
                         </Link>
                     }
                     
-                        <h3>Title: <span className="reviewDescValue">{this.state.title}</span></h3>
+                        <h3>Title: <span className="reviewDescValue">{this.props.location.state.title}</span></h3>
                         <h3>Writer: <span className="reviewDescValue">{this.state.writer}</span> </h3>
                         <h3>Artist: <span className="reviewDescValue">{this.state.artist}</span> </h3>
                         <h3>Publisher: <span className="reviewDescValue">{this.state.publisher}</span> </h3>
@@ -111,5 +117,7 @@ class Review extends React.Component {
     }
     
 }
+
+const Review = connect(mapStateToProps)(ConnectedReview)
 
 export default Review

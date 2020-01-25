@@ -51,7 +51,7 @@ export default class CarouselBootStrap extends Component {
                                                 score={entry['score']}
                                                 name={entry.name}
                                                 active={"active"}
-                                                admin={this.props.admin}/>
+                                                />
                             }
                             else {
                                 return <SlideNew id={entry['id']}
@@ -66,7 +66,7 @@ export default class CarouselBootStrap extends Component {
                                                 score={entry['score']}
                                                 name={entry.name}
                                                 active={""}
-                                                admin={this.props.admin}/>
+                                                />
                             }
                             
                         }) 
